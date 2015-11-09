@@ -2,9 +2,9 @@
 
 
 /* File created by MIDL compiler version 5.01.0164 */
-/* at Fri Oct 31 16:48:29 2014
+/* at Tue Nov 04 08:49:34 2014
  */
-/* Compiler settings for D:\COM Program\V2\Chapter 3\Timers\Timers.idl:
+/* Compiler settings for C:\Documents and Settings\Administrator\×ÀÃæ\ComProgramBook\V2\Chapter 3\Timers\Timers.idl:
     Oicf (OptLev=i2), W1, Zp8, env=Win32, ms_ext, c_ext
     error checks: allocation ref bounds_check enum stub_data 
 */
