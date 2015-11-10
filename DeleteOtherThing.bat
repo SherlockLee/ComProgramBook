@@ -14,7 +14,6 @@ for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.
 for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.sln$"`) do del /s /q "%%a"
 for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.pdb$"`) do del /s /q "%%a"
 for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.lib$"`) do del /s /q "%%a"
-for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.dll$"`) do del /s /q "%%a"
 for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.bsc$"`) do del /s /q "%%a"
 for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.opt$"`) do del /s /q "%%a"
 for /f "usebackq tokens=1* delims=/" %%a in (`dir /s /b /a:a ^| findstr /i "\\*.ilk$"`) do del /s /q "%%a"

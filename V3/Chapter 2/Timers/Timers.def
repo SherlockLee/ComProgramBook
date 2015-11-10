@@ -1,0 +1,4 @@
+LIBRARY		"Timers.DLL"
+
+EXPORTS
+	DllGetClassObject	@1		PRIVATE

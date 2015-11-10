@@ -1,0 +1,1130 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (a73f28da).
+//
+// agentsvr.tli
+//
+// Wrapper implementations for Win32 type library C:\WINDOWS\msagent\agentsvr.exe
+// compiler-generated file created 11/04/14 at 13:44:42 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IAgent wrapper method implementations
+//
+
+inline HRESULT IAgent::Load ( const _variant_t & vLoadKey, long * pdwCharID, long * pdwReqID ) {
+    HRESULT _hr = raw_Load(vLoadKey, pdwCharID, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgent::Unload ( long dwCharID ) {
+    HRESULT _hr = raw_Unload(dwCharID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgent::Register ( IUnknown * punkNotifySink, long * pdwSinkID ) {
+    HRESULT _hr = raw_Register(punkNotifySink, pdwSinkID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgent::Unregister ( long dwSinkID ) {
+    HRESULT _hr = raw_Unregister(dwSinkID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgent::GetCharacter ( long dwCharID, IDispatch * * ppunkCharacter ) {
+    HRESULT _hr = raw_GetCharacter(dwCharID, ppunkCharacter);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgent::GetSuspended ( long * pbSuspended ) {
+    HRESULT _hr = raw_GetSuspended(pbSuspended);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentUserInput wrapper method implementations
+//
+
+inline HRESULT IAgentUserInput::GetCount ( long * pdwCount ) {
+    HRESULT _hr = raw_GetCount(pdwCount);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentUserInput::GetItemID ( long dwItemIndex, long * pdwCommandID ) {
+    HRESULT _hr = raw_GetItemID(dwItemIndex, pdwCommandID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentUserInput::GetItemConfidence ( long dwItemIndex, long * plConfidence ) {
+    HRESULT _hr = raw_GetItemConfidence(dwItemIndex, plConfidence);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentUserInput::GetItemText ( long dwItemIndex, BSTR * pbszText ) {
+    HRESULT _hr = raw_GetItemText(dwItemIndex, pbszText);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentUserInput::GetAllItemData ( VARIANT * pdwItemIndices, VARIANT * plConfidences, VARIANT * pbszText ) {
+    HRESULT _hr = raw_GetAllItemData(pdwItemIndices, plConfidences, pbszText);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCommand wrapper method implementations
+//
+
+inline HRESULT IAgentCommand::SetCaption ( _bstr_t bszCaption ) {
+    HRESULT _hr = raw_SetCaption(bszCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetCaption ( BSTR * pbszCaption ) {
+    HRESULT _hr = raw_GetCaption(pbszCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::SetVoice ( _bstr_t bszVoice ) {
+    HRESULT _hr = raw_SetVoice(bszVoice);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetVoice ( BSTR * pbszVoice ) {
+    HRESULT _hr = raw_GetVoice(pbszVoice);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::SetEnabled ( long bEnabled ) {
+    HRESULT _hr = raw_SetEnabled(bEnabled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetEnabled ( long * pbEnabled ) {
+    HRESULT _hr = raw_GetEnabled(pbEnabled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::SetVisible ( long bVisible ) {
+    HRESULT _hr = raw_SetVisible(bVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetVisible ( long * pbVisible ) {
+    HRESULT _hr = raw_GetVisible(pbVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::SetConfidenceThreshold ( long lThreshold ) {
+    HRESULT _hr = raw_SetConfidenceThreshold(lThreshold);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetConfidenceThreshold ( long * plThreshold ) {
+    HRESULT _hr = raw_GetConfidenceThreshold(plThreshold);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::SetConfidenceText ( _bstr_t bszTipText ) {
+    HRESULT _hr = raw_SetConfidenceText(bszTipText);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetConfidenceText ( BSTR * pbszTipText ) {
+    HRESULT _hr = raw_GetConfidenceText(pbszTipText);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommand::GetID ( long * pdwID ) {
+    HRESULT _hr = raw_GetID(pdwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCommandEx wrapper method implementations
+//
+
+inline HRESULT IAgentCommandEx::SetHelpContextID ( long ulID ) {
+    HRESULT _hr = raw_SetHelpContextID(ulID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandEx::GetHelpContextID ( long * pulID ) {
+    HRESULT _hr = raw_GetHelpContextID(pulID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandEx::SetVoiceCaption ( _bstr_t bszVoiceCaption ) {
+    HRESULT _hr = raw_SetVoiceCaption(bszVoiceCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandEx::GetVoiceCaption ( BSTR * pbszVoiceCaption ) {
+    HRESULT _hr = raw_GetVoiceCaption(pbszVoiceCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCommands wrapper method implementations
+//
+
+inline HRESULT IAgentCommands::GetCommand ( long dwCommandID, IUnknown * * ppunkCommand ) {
+    HRESULT _hr = raw_GetCommand(dwCommandID, ppunkCommand);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::GetCount ( long * pdwCount ) {
+    HRESULT _hr = raw_GetCount(pdwCount);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::SetCaption ( _bstr_t bszCaption ) {
+    HRESULT _hr = raw_SetCaption(bszCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::GetCaption ( BSTR * pbszCaption ) {
+    HRESULT _hr = raw_GetCaption(pbszCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::SetVoice ( _bstr_t bszVoice ) {
+    HRESULT _hr = raw_SetVoice(bszVoice);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::GetVoice ( BSTR * pbszVoice ) {
+    HRESULT _hr = raw_GetVoice(pbszVoice);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::SetVisible ( long bVisible ) {
+    HRESULT _hr = raw_SetVisible(bVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::GetVisible ( long * pbVisible ) {
+    HRESULT _hr = raw_GetVisible(pbVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::Add ( _bstr_t bszCaption, _bstr_t bszVoice, long bEnabled, long bVisible, long * pdwID ) {
+    HRESULT _hr = raw_Add(bszCaption, bszVoice, bEnabled, bVisible, pdwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::Insert ( _bstr_t bszCaption, _bstr_t bszVoice, long bEnabled, long bVisible, long dwRefID, long bBefore, long * pdwID ) {
+    HRESULT _hr = raw_Insert(bszCaption, bszVoice, bEnabled, bVisible, dwRefID, bBefore, pdwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::Remove ( long dwID ) {
+    HRESULT _hr = raw_Remove(dwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommands::RemoveAll ( ) {
+    HRESULT _hr = raw_RemoveAll();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCommandsEx wrapper method implementations
+//
+
+inline HRESULT IAgentCommandsEx::GetCommandEx ( long dwCommandID, struct IAgentCommandEx * * ppCommandEx ) {
+    HRESULT _hr = raw_GetCommandEx(dwCommandID, ppCommandEx);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::SetDefaultID ( long dwID ) {
+    HRESULT _hr = raw_SetDefaultID(dwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::GetDefaultID ( long * pdwID ) {
+    HRESULT _hr = raw_GetDefaultID(pdwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::SetHelpContextID ( long ulHelpID ) {
+    HRESULT _hr = raw_SetHelpContextID(ulHelpID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::GetHelpContextID ( long * pulHelpID ) {
+    HRESULT _hr = raw_GetHelpContextID(pulHelpID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::SetFontName ( _bstr_t bszFontName ) {
+    HRESULT _hr = raw_SetFontName(bszFontName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::GetFontName ( BSTR * pbszFontName ) {
+    HRESULT _hr = raw_GetFontName(pbszFontName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::SetFontSize ( long lFontSize ) {
+    HRESULT _hr = raw_SetFontSize(lFontSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::GetFontSize ( long * lFontSize ) {
+    HRESULT _hr = raw_GetFontSize(lFontSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::SetVoiceCaption ( _bstr_t bszVoiceCaption ) {
+    HRESULT _hr = raw_SetVoiceCaption(bszVoiceCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::GetVoiceCaption ( BSTR * bszVoiceCaption ) {
+    HRESULT _hr = raw_GetVoiceCaption(bszVoiceCaption);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::AddEx ( _bstr_t bszCaption, _bstr_t bszVoice, _bstr_t bszVoiceCaption, long bEnabled, long bVisible, long ulHelpID, long * pdwID ) {
+    HRESULT _hr = raw_AddEx(bszCaption, bszVoice, bszVoiceCaption, bEnabled, bVisible, ulHelpID, pdwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::InsertEx ( _bstr_t bszCaption, _bstr_t bszVoice, _bstr_t bszVoiceCaption, long bEnabled, long bVisible, long ulHelpID, long dwRefID, long bBefore, long * pdwID ) {
+    HRESULT _hr = raw_InsertEx(bszCaption, bszVoice, bszVoiceCaption, bEnabled, bVisible, ulHelpID, dwRefID, bBefore, pdwID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::SetGlobalVoiceCommandsEnabled ( long bEnable ) {
+    HRESULT _hr = raw_SetGlobalVoiceCommandsEnabled(bEnable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandsEx::GetGlobalVoiceCommandsEnabled ( long * pbEnabled ) {
+    HRESULT _hr = raw_GetGlobalVoiceCommandsEnabled(pbEnabled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentSpeechInputProperties wrapper method implementations
+//
+
+inline HRESULT IAgentSpeechInputProperties::GetInstalled ( long * pbInstalled ) {
+    HRESULT _hr = raw_GetInstalled(pbInstalled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentSpeechInputProperties::GetEnabled ( long * pbEnabled ) {
+    HRESULT _hr = raw_GetEnabled(pbEnabled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentSpeechInputProperties::GetHotKey ( BSTR * pbszHotCharKey ) {
+    HRESULT _hr = raw_GetHotKey(pbszHotCharKey);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentSpeechInputProperties::GetLCID ( unsigned long * plcidCurrent ) {
+    HRESULT _hr = raw_GetLCID(plcidCurrent);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentSpeechInputProperties::GetEngine ( BSTR * pbszEngine ) {
+    HRESULT _hr = raw_GetEngine(pbszEngine);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentSpeechInputProperties::SetEngine ( _bstr_t bszEngine ) {
+    HRESULT _hr = raw_SetEngine(bszEngine);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentSpeechInputProperties::GetListeningTip ( long * pbListeningTip ) {
+    HRESULT _hr = raw_GetListeningTip(pbListeningTip);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentAudioOutputProperties wrapper method implementations
+//
+
+inline HRESULT IAgentAudioOutputProperties::GetEnabled ( long * pbEnabled ) {
+    HRESULT _hr = raw_GetEnabled(pbEnabled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentAudioOutputProperties::GetUsingSoundEffects ( long * pbUsingSoundEffects ) {
+    HRESULT _hr = raw_GetUsingSoundEffects(pbUsingSoundEffects);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentAudioOutputPropertiesEx wrapper method implementations
+//
+
+inline HRESULT IAgentAudioOutputPropertiesEx::GetStatus ( long * plStatus ) {
+    HRESULT _hr = raw_GetStatus(plStatus);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentPropertySheet wrapper method implementations
+//
+
+inline HRESULT IAgentPropertySheet::GetVisible ( long * pbVisible ) {
+    HRESULT _hr = raw_GetVisible(pbVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentPropertySheet::SetVisible ( long bVisible ) {
+    HRESULT _hr = raw_SetVisible(bVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentPropertySheet::GetPosition ( long * plLeft, long * plTop ) {
+    HRESULT _hr = raw_GetPosition(plLeft, plTop);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentPropertySheet::GetSize ( long * plWidth, long * plHeight ) {
+    HRESULT _hr = raw_GetSize(plWidth, plHeight);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentPropertySheet::GetPage ( BSTR * pbszPage ) {
+    HRESULT _hr = raw_GetPage(pbszPage);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentPropertySheet::SetPage ( _bstr_t bszPage ) {
+    HRESULT _hr = raw_SetPage(bszPage);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentBalloon wrapper method implementations
+//
+
+inline HRESULT IAgentBalloon::GetEnabled ( long * pbEnabled ) {
+    HRESULT _hr = raw_GetEnabled(pbEnabled);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetNumLines ( long * plLines ) {
+    HRESULT _hr = raw_GetNumLines(plLines);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetNumCharsPerLine ( long * plCharsPerLine ) {
+    HRESULT _hr = raw_GetNumCharsPerLine(plCharsPerLine);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontName ( BSTR * pbszFontName ) {
+    HRESULT _hr = raw_GetFontName(pbszFontName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontSize ( long * plFontSize ) {
+    HRESULT _hr = raw_GetFontSize(plFontSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontBold ( long * pbFontBold ) {
+    HRESULT _hr = raw_GetFontBold(pbFontBold);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontItalic ( long * pbFontItalic ) {
+    HRESULT _hr = raw_GetFontItalic(pbFontItalic);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontStrikethru ( long * pbFontStrikethru ) {
+    HRESULT _hr = raw_GetFontStrikethru(pbFontStrikethru);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontUnderline ( long * pbFontUnderline ) {
+    HRESULT _hr = raw_GetFontUnderline(pbFontUnderline);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetForeColor ( long * plFGColor ) {
+    HRESULT _hr = raw_GetForeColor(plFGColor);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetBackColor ( long * plBGColor ) {
+    HRESULT _hr = raw_GetBackColor(plBGColor);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetBorderColor ( long * plBorderColor ) {
+    HRESULT _hr = raw_GetBorderColor(plBorderColor);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::SetVisible ( long bVisible ) {
+    HRESULT _hr = raw_SetVisible(bVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetVisible ( long * pbVisible ) {
+    HRESULT _hr = raw_GetVisible(pbVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::SetFontName ( _bstr_t bszFontName ) {
+    HRESULT _hr = raw_SetFontName(bszFontName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::SetFontSize ( long lFontSize ) {
+    HRESULT _hr = raw_SetFontSize(lFontSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::SetFontCharSet ( short sFontCharSet ) {
+    HRESULT _hr = raw_SetFontCharSet(sFontCharSet);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloon::GetFontCharSet ( short * psFontCharSet ) {
+    HRESULT _hr = raw_GetFontCharSet(psFontCharSet);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentBalloonEx wrapper method implementations
+//
+
+inline HRESULT IAgentBalloonEx::SetStyle ( long lStyle ) {
+    HRESULT _hr = raw_SetStyle(lStyle);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloonEx::GetStyle ( long * plStyle ) {
+    HRESULT _hr = raw_GetStyle(plStyle);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloonEx::SetNumLines ( long lLines ) {
+    HRESULT _hr = raw_SetNumLines(lLines);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentBalloonEx::SetNumCharsPerLine ( long lCharsPerLine ) {
+    HRESULT _hr = raw_SetNumCharsPerLine(lCharsPerLine);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCharacter wrapper method implementations
+//
+
+inline HRESULT IAgentCharacter::GetVisible ( long * pbVisible ) {
+    HRESULT _hr = raw_GetVisible(pbVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::SetPosition ( long lLeft, long lTop ) {
+    HRESULT _hr = raw_SetPosition(lLeft, lTop);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetPosition ( long * plLeft, long * plTop ) {
+    HRESULT _hr = raw_GetPosition(plLeft, plTop);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::SetSize ( long lWidth, long lHeight ) {
+    HRESULT _hr = raw_SetSize(lWidth, lHeight);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetSize ( long * plWidth, long * plHeight ) {
+    HRESULT _hr = raw_GetSize(plWidth, plHeight);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetName ( BSTR * pbszName ) {
+    HRESULT _hr = raw_GetName(pbszName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetDescription ( BSTR * pbszDescription ) {
+    HRESULT _hr = raw_GetDescription(pbszDescription);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetTTSSpeed ( long * pdwSpeed ) {
+    HRESULT _hr = raw_GetTTSSpeed(pdwSpeed);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetTTSPitch ( short * pwPitch ) {
+    HRESULT _hr = raw_GetTTSPitch(pwPitch);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Activate ( short sState ) {
+    HRESULT _hr = raw_Activate(sState);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::SetIdleOn ( long bOn ) {
+    HRESULT _hr = raw_SetIdleOn(bOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetIdleOn ( long * pbOn ) {
+    HRESULT _hr = raw_GetIdleOn(pbOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Prepare ( long dwType, _bstr_t bszName, long bQueue, long * pdwReqID ) {
+    HRESULT _hr = raw_Prepare(dwType, bszName, bQueue, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Play ( _bstr_t bszAnimation, long * pdwReqID ) {
+    HRESULT _hr = raw_Play(bszAnimation, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Stop ( long dwReqID ) {
+    HRESULT _hr = raw_Stop(dwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::StopAll ( long lTypes ) {
+    HRESULT _hr = raw_StopAll(lTypes);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Wait ( long dwReqID, long * pdwReqID ) {
+    HRESULT _hr = raw_Wait(dwReqID, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Interrupt ( long dwReqID, long * pdwReqID ) {
+    HRESULT _hr = raw_Interrupt(dwReqID, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Show ( long bFast, long * pdwReqID ) {
+    HRESULT _hr = raw_Show(bFast, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Hide ( long bFast, long * pdwReqID ) {
+    HRESULT _hr = raw_Hide(bFast, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::Speak ( _bstr_t bszText, _bstr_t bszUrl, long * pdwReqID ) {
+    HRESULT _hr = raw_Speak(bszText, bszUrl, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::MoveTo ( short x, short y, long lSpeed, long * pdwReqID ) {
+    HRESULT _hr = raw_MoveTo(x, y, lSpeed, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GestureAt ( short x, short y, long * pdwReqID ) {
+    HRESULT _hr = raw_GestureAt(x, y, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetMoveCause ( long * pdwCause ) {
+    HRESULT _hr = raw_GetMoveCause(pdwCause);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetVisibilityCause ( long * pdwCause ) {
+    HRESULT _hr = raw_GetVisibilityCause(pdwCause);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::HasOtherClients ( long * plNumOtherClients ) {
+    HRESULT _hr = raw_HasOtherClients(plNumOtherClients);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::SetSoundEffectsOn ( long bOn ) {
+    HRESULT _hr = raw_SetSoundEffectsOn(bOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetSoundEffectsOn ( long * pbOn ) {
+    HRESULT _hr = raw_GetSoundEffectsOn(pbOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::SetName ( _bstr_t bszName ) {
+    HRESULT _hr = raw_SetName(bszName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::SetDescription ( _bstr_t bszDescription ) {
+    HRESULT _hr = raw_SetDescription(bszDescription);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacter::GetExtraData ( BSTR * pbszExtraData ) {
+    HRESULT _hr = raw_GetExtraData(pbszExtraData);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCharacterEx wrapper method implementations
+//
+
+inline HRESULT IAgentCharacterEx::ShowPopupMenu ( short x, short y ) {
+    HRESULT _hr = raw_ShowPopupMenu(x, y);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetAutoPopupMenu ( long bAutoPopupMenu ) {
+    HRESULT _hr = raw_SetAutoPopupMenu(bAutoPopupMenu);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetAutoPopupMenu ( long * pbAutoPopupMenu ) {
+    HRESULT _hr = raw_GetAutoPopupMenu(pbAutoPopupMenu);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetHelpFileName ( BSTR * pbszName ) {
+    HRESULT _hr = raw_GetHelpFileName(pbszName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetHelpFileName ( _bstr_t bszName ) {
+    HRESULT _hr = raw_SetHelpFileName(bszName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetHelpModeOn ( long bHelpModeOn ) {
+    HRESULT _hr = raw_SetHelpModeOn(bHelpModeOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetHelpModeOn ( long * pbHelpModeOn ) {
+    HRESULT _hr = raw_GetHelpModeOn(pbHelpModeOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetHelpContextID ( long ulID ) {
+    HRESULT _hr = raw_SetHelpContextID(ulID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetHelpContextID ( long * pulID ) {
+    HRESULT _hr = raw_GetHelpContextID(pulID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetActive ( short * psState ) {
+    HRESULT _hr = raw_GetActive(psState);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::Listen ( long bListen ) {
+    HRESULT _hr = raw_Listen(bListen);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetLanguageID ( long langid ) {
+    HRESULT _hr = raw_SetLanguageID(langid);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetLanguageID ( long * plangid ) {
+    HRESULT _hr = raw_GetLanguageID(plangid);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetTTSModeID ( BSTR * pbszModeID ) {
+    HRESULT _hr = raw_GetTTSModeID(pbszModeID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetTTSModeID ( _bstr_t bszModeID ) {
+    HRESULT _hr = raw_SetTTSModeID(bszModeID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetSRModeID ( BSTR * pbszModeID ) {
+    HRESULT _hr = raw_GetSRModeID(pbszModeID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::SetSRModeID ( _bstr_t bszModeID ) {
+    HRESULT _hr = raw_SetSRModeID(bszModeID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetGUID ( BSTR * pbszID ) {
+    HRESULT _hr = raw_GetGUID(pbszID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetOriginalSize ( long * plWidth, long * plHeight ) {
+    HRESULT _hr = raw_GetOriginalSize(plWidth, plHeight);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::Think ( _bstr_t bszText, long * pdwReqID ) {
+    HRESULT _hr = raw_Think(bszText, pdwReqID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetVersion ( short * psMajor, short * psMinor ) {
+    HRESULT _hr = raw_GetVersion(psMajor, psMinor);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetAnimationNames ( IUnknown * * punkEnum ) {
+    HRESULT _hr = raw_GetAnimationNames(punkEnum);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCharacterEx::GetSRStatus ( long * plStatus ) {
+    HRESULT _hr = raw_GetSRStatus(plStatus);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentEx wrapper method implementations
+//
+
+inline HRESULT IAgentEx::GetCharacterEx ( long dwCharID, struct IAgentCharacterEx * * ppCharacterEx ) {
+    HRESULT _hr = raw_GetCharacterEx(dwCharID, ppCharacterEx);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentEx::GetVersion ( short * psMajor, short * psMinor ) {
+    HRESULT _hr = raw_GetVersion(psMajor, psMinor);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentEx::ShowDefaultCharacterProperties ( short x, short y, long bUseDefaultPosition ) {
+    HRESULT _hr = raw_ShowDefaultCharacterProperties(x, y, bUseDefaultPosition);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentNotifySink wrapper method implementations
+//
+
+inline HRESULT IAgentNotifySink::Command ( long dwCommandID, IUnknown * punkUserInput ) {
+    HRESULT _hr = raw_Command(dwCommandID, punkUserInput);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::ActivateInputState ( long dwCharID, long bActivated ) {
+    HRESULT _hr = raw_ActivateInputState(dwCharID, bActivated);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::Restart ( ) {
+    HRESULT _hr = raw_Restart();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::Shutdown ( ) {
+    HRESULT _hr = raw_Shutdown();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::VisibleState ( long dwCharID, long bVisible, long dwCause ) {
+    HRESULT _hr = raw_VisibleState(dwCharID, bVisible, dwCause);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::Click ( long dwCharID, short fwKeys, long x, long y ) {
+    HRESULT _hr = raw_Click(dwCharID, fwKeys, x, y);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::DblClick ( long dwCharID, short fwKeys, long x, long y ) {
+    HRESULT _hr = raw_DblClick(dwCharID, fwKeys, x, y);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::DragStart ( long dwCharID, short fwKeys, long x, long y ) {
+    HRESULT _hr = raw_DragStart(dwCharID, fwKeys, x, y);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::DragComplete ( long dwCharID, short fwKeys, long x, long y ) {
+    HRESULT _hr = raw_DragComplete(dwCharID, fwKeys, x, y);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::RequestStart ( long dwRequestID ) {
+    HRESULT _hr = raw_RequestStart(dwRequestID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::RequestComplete ( long dwRequestID, long hrStatus ) {
+    HRESULT _hr = raw_RequestComplete(dwRequestID, hrStatus);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::BookMark ( long dwBookMarkID ) {
+    HRESULT _hr = raw_BookMark(dwBookMarkID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::Idle ( long dwCharID, long bStart ) {
+    HRESULT _hr = raw_Idle(dwCharID, bStart);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::Move ( long dwCharID, long x, long y, long dwCause ) {
+    HRESULT _hr = raw_Move(dwCharID, x, y, dwCause);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::Size ( long dwCharID, long lWidth, long lHeight ) {
+    HRESULT _hr = raw_Size(dwCharID, lWidth, lHeight);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySink::BalloonVisibleState ( long dwCharID, long bVisible ) {
+    HRESULT _hr = raw_BalloonVisibleState(dwCharID, bVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentNotifySinkEx wrapper method implementations
+//
+
+inline HRESULT IAgentNotifySinkEx::HelpComplete ( long dwCharID, long dwCommandID, long dwCause ) {
+    HRESULT _hr = raw_HelpComplete(dwCharID, dwCommandID, dwCause);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySinkEx::ListeningState ( long dwCharID, long bListening, long dwCause ) {
+    HRESULT _hr = raw_ListeningState(dwCharID, bListening, dwCause);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySinkEx::DefaultCharacterChange ( _bstr_t bszGUID ) {
+    HRESULT _hr = raw_DefaultCharacterChange(bszGUID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySinkEx::AgentPropertyChange ( ) {
+    HRESULT _hr = raw_AgentPropertyChange();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentNotifySinkEx::ActiveClientChange ( long dwCharID, long lStatus ) {
+    HRESULT _hr = raw_ActiveClientChange(dwCharID, lStatus);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IAgentCommandWindow wrapper method implementations
+//
+
+inline HRESULT IAgentCommandWindow::SetVisible ( long bVisible ) {
+    HRESULT _hr = raw_SetVisible(bVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandWindow::GetVisible ( long * pbVisible ) {
+    HRESULT _hr = raw_GetVisible(pbVisible);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandWindow::GetPosition ( long * plLeft, long * plTop ) {
+    HRESULT _hr = raw_GetPosition(plLeft, plTop);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IAgentCommandWindow::GetSize ( long * plWidth, long * plHeight ) {
+    HRESULT _hr = raw_GetSize(plWidth, plHeight);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

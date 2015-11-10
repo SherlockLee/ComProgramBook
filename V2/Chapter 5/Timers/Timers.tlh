@@ -1,0 +1,74 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (f3b0967a).
+//
+// Timers.tlh
+//
+// C++ source equivalent of Win32 type library ..\\Timers.dll
+// compiler-generated file created 11/04/14 at 16:28:43 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ Stopwatch;
+struct __declspec(uuid("8dc0eeec-fa21-4044-a142-6f83bc55f24a"))
+/* interface */ IStopwatch;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IStopwatch, __uuidof(IStopwatch));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("90236f32-cb2c-40f2-9d8f-fc643db636a2"))
+Stopwatch;
+    // [ default ] interface IStopwatch
+
+struct __declspec(uuid("8dc0eeec-fa21-4044-a142-6f83bc55f24a"))
+IStopwatch : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetOverhead,put=PutOverhead))
+    float Overhead;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Start ( );
+    float ElapsedTime ( );
+    float GetOverhead ( );
+    void PutOverhead (
+        float pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_Start ( ) = 0;
+    virtual HRESULT __stdcall raw_ElapsedTime (
+        float * Time ) = 0;
+    virtual HRESULT __stdcall get_Overhead (
+        float * pVal ) = 0;
+    virtual HRESULT __stdcall put_Overhead (
+        float pVal ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "Timers.tli"
+
+#pragma pack(pop)
