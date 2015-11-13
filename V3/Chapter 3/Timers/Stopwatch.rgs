@@ -1,0 +1,25 @@
+HKCR
+{
+	Timers.Stopwatch.1 = s 'Stopwatch Class'
+	{
+		CLSID = s '{B2411CD4-D6D1-4AE5-8714-A4294B8CE960}'
+	}
+	Timers.Stopwatch = s 'Stopwatch Class'
+	{
+		CLSID = s '{B2411CD4-D6D1-4AE5-8714-A4294B8CE960}'
+		CurVer = s 'Timers.Stopwatch.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B2411CD4-D6D1-4AE5-8714-A4294B8CE960} = s 'Stopwatch Class'
+		{
+			ProgID = s 'Timers.Stopwatch.1'
+			VersionIndependentProgID = s 'Timers.Stopwatch'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{739844B7-9345-4F9E-BD3D-19EAD353255B}'
+		}
+	}
+}

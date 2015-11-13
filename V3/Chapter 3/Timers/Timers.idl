@@ -1,0 +1,40 @@
+// Timers.idl : IDL source for Timers.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Timers.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(52D89D35-2685-4286-80C8-BD335062600F),
+	
+		helpstring("IStopwatch Interface"),
+		pointer_default(unique)
+	]
+	interface IStopwatch : IUnknown
+	{
+		[helpstring("method Start")] HRESULT Start();
+		[helpstring("method ElapsedTime")] HRESULT ElapsedTime([out, retval] float* Time);
+	};
+
+[
+	uuid(739844B7-9345-4F9E-BD3D-19EAD353255B),
+	version(1.0),
+	helpstring("Timers 1.0 Type Library")
+]
+library TIMERSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(B2411CD4-D6D1-4AE5-8714-A4294B8CE960),
+		helpstring("Stopwatch Class")
+	]
+	coclass Stopwatch
+	{
+		[default] interface IStopwatch;
+	};
+};
