@@ -1,0 +1,38 @@
+#ifndef TIMERS_I_C
+#define TIMERS_I_C
+
+
+#include <windows.h>
+
+
+// {52D89D35-2685-4286-80C8-BD335062600F}
+const IID IID_IStopwatch = 
+{ 0x52d89d35, 0x2685, 0x4286, 
+	{ 0x80, 0xc8, 0xbd, 0x33, 0x50, 0x62, 0x60, 0xf } 
+};
+
+
+// {B2411CD4-D6D1-4AE5-8714-A4294B8CE960}
+const CLSID CLSID_Stopwatch = 
+{ 0xb2411cd4, 0xd6d1, 0x4ae5, 
+	{ 0x87, 0x14, 0xa4, 0x29, 0x4b, 0x8c, 0xe9, 0x60 } 
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif

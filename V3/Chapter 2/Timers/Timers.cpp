@@ -10,6 +10,16 @@ BOOL __stdcall DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID)
 extern "C"
 HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID FAR* ppv)
 {
-	*ppv = static_cast<IStopwatch*>(new CStopwatch);
+	HRESULT hr;
+	if (rclsid == CLSID_Stopwatch)
+	{
+		CStopwatch* stopwatch = new CStopwatch;
+		hr = stopwatch->QueryInterface(riid, ppv);
+	} 
+	else
+	{
+		hr = CLASS_E_CLASSNOTAVAILABLE;
+	}
+	
 	return S_OK;
 }

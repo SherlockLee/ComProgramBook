@@ -13,6 +13,7 @@
 CStopwatch::CStopwatch()
 {
 	m_nStartTime.QuadPart = 0;
+	m_nReferenceCount = 0;
 	QueryPerformanceFrequency((LARGE_INTEGER *)&m_nFrequency);
 }
 
@@ -23,8 +24,12 @@ CStopwatch::~CStopwatch()
 
 unsigned long __stdcall CStopwatch::Release()
 {
-	delete this;
-	return 0;
+	if (InterlockedDecrement(&m_nReferenceCount) == 0)
+	{
+		delete this;
+		return 0;
+	}
+	return m_nReferenceCount;
 }
 
 HRESULT __stdcall CStopwatch::Start()
@@ -56,3 +61,34 @@ HRESULT __stdcall CStopwatch::ElapsedTime(float *Time)
 	}
 	return hr;
 }
+
+HRESULT __stdcall CStopwatch::QueryInterface(REFIID riid, void ** ppvObject)
+{
+	HRESULT hr = S_OK;
+
+	if (riid == IID_IUnknown)
+	{
+		*ppvObject = static_cast<IUnknown*>(static_cast<IStopwatch*>(this));
+	}
+	else if (riid == IID_IStopwatch)
+	{
+		*ppvObject = static_cast<IStopwatch*>(this);
+	} 
+	else
+	{
+		ppvObject = NULL;
+		hr = E_NOINTERFACE;
+	}
+
+	if (SUCCEEDED(hr))
+	{
+		(static_cast<IUnknown*>(*ppvObject)->AddRef());
+	}
+	return hr;
+}
+
+unsigned long __stdcall CStopwatch::AddRef()
+{
+	return InterlockedIncrement(&m_nReferenceCount);
+}
+

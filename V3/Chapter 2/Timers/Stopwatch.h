@@ -10,13 +10,11 @@
 #endif // _MSC_VER > 1000
 
 #include <windows.h>
+#include "Timers_i.c"
 
-class IStopwatch
+class IStopwatch :public IUnknown
 {
 public:
-	// Utility functions
-	virtual unsigned long __stdcall Release() = 0;
-
 	// IStopwatch specific functions
 	virtual HRESULT __stdcall Start() = 0;
 	virtual HRESULT __stdcall ElapsedTime(float *Time) = 0;
@@ -34,10 +32,15 @@ private:
 
 	LARGE_INTEGER m_nStartTime;
 
-public:
-	unsigned long __stdcall Release();
+	long m_nReferenceCount;
+
+public:	
 	HRESULT __stdcall Start();
 	HRESULT __stdcall ElapsedTime(float *Time);
+	HRESULT __stdcall QueryInterface(REFIID riid, void ** ppvObject);
+	unsigned long __stdcall AddRef();
+	unsigned long __stdcall Release();
+
 };
 
 #endif // !defined(AFX_STOPWATCH_H__74D7AE7E_6ABB_4CD0_B2B9_C7D5369D9FB3__INCLUDED_)

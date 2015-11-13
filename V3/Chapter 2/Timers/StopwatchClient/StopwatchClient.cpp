@@ -1,16 +1,16 @@
 #include <iostream>
 
+#include "..\timers_i.c"
 #include "..\Stopwatch.h"
 #define TIMERSDLL	"..\\Timers.dll"
 
 typedef HRESULT(__stdcall *DLLGETCLASSOBJECT)(REFCLSID rc_sid, REFIID riid, LPVOID * ppv);
 
-HRESULT CreateInstance(void ** ppv)
+HRESULT CreateInstance(REFCLSID rclsid, REFIID riid, void ** ppv)
 {
 	HRESULT hr = E_FAIL;
 	HINSTANCE hinstDll;
 	DLLGETCLASSOBJECT DllGetClassObject;
-	GUID guid;
 
 	hinstDll = LoadLibrary(TIMERSDLL);
 	if (hinstDll == NULL)
@@ -22,11 +22,21 @@ HRESULT CreateInstance(void ** ppv)
 		DllGetClassObject = ((DLLGETCLASSOBJECT)GetProcAddress(hinstDll, "DllGetClassObject"));
 		if (DllGetClassObject != NULL)
 		{
-			hr = DllGetClassObject(guid, guid, ppv);
+			hr = DllGetClassObject(rclsid, riid, ppv);
 		}
 	}
 
 	return hr;
+}
+
+void UseStopwatch(IStopwatch* const pStopwatch)
+{
+	float nElapsedTime;
+	pStopwatch->Start();
+	pStopwatch->ElapsedTime(&nElapsedTime);
+
+	std::cout << "The overhead time is "
+			<< nElapsedTime << std::endl;
 }
 
 int main(int argc, char *argv[])
@@ -34,21 +44,31 @@ int main(int argc, char *argv[])
 	float nElapsedTime;
 	HRESULT hr;
 	IStopwatch* pStopwatch = NULL;
+	IUnknown* pIUnknown = NULL;
+	IUnknown* pIUnknown2 = NULL;
 
-	hr = CreateInstance((void **)&pStopwatch);
+	hr = CreateInstance(CLSID_Stopwatch, IID_IUnknown, (void **)&pIUnknown);
+
 	if (!SUCCEEDED(hr))
 	{
 		std::cout << "ERROR: Unable to create Stopwatch!!";
 	} 
 	else
 	{
-		pStopwatch->Start();
-		pStopwatch->ElapsedTime(&nElapsedTime);
+		pIUnknown2 = pIUnknown;
 
-		std::cout << "The overhead time is "
-			<< nElapsedTime << std::endl;
-		pStopwatch->Release();
-		pStopwatch = NULL;
+		hr = pIUnknown2->QueryInterface(IID_IStopwatch, (void **)&pStopwatch);
+		if (!SUCCEEDED(hr))
+		{
+			std::cout << "ERROR: Unable to retrieve Stopwatch interface!!";
+		} 
+		else
+		{
+			UseStopwatch(pStopwatch);
+			pStopwatch->Release();
+			pStopwatch = NULL;
+		}
+		pIUnknown->Release();
 	}
 
 	return 0;
