@@ -1,60 +1,9 @@
 #include <iostream>
+#include <windows.h>
 
 #include "..\timers_i.c"
 #include "..\Stopwatch.h"
-#include "..\StopwatchClassFactory.h"
-#define TIMERSDLL	"..\\Timers.dll"
 
-typedef HRESULT(__stdcall *DLLGETCLASSOBJECT)(REFCLSID rc_sid, REFIID riid, LPVOID * ppv);
-
-typedef HRESULT(__stdcall *DLLCANUNLOADNOW)(void);
-
-HINSTANCE hinstDll;
-
-HRESULT CreateInstance(REFCLSID rclsid, REFIID riid, void ** ppv)
-{
-	HRESULT hr = E_FAIL;
-	HINSTANCE hinstDll;
-	DLLGETCLASSOBJECT DllGetClassObject;
-	IClassFactory* pClassFactory;
-
-	hinstDll = LoadLibrary(TIMERSDLL);
-	if (hinstDll == NULL)
-	{
-		std::cout << "Unable to load\"" TIMERSDLL "\"" << std::endl;
-	} 
-	else
-	{
-		DllGetClassObject = ((DLLGETCLASSOBJECT)GetProcAddress(hinstDll, "DllGetClassObject"));
-		if (DllGetClassObject != NULL)
-		{
-			hr = DllGetClassObject(rclsid, IID_IClassFactory, (void**)&pClassFactory);
-
-			if (SUCCEEDED(hr))
-			{
-				hr = pClassFactory->CreateInstance(NULL, riid, ppv);
-				pClassFactory->Release();
-			}
-			pClassFactory = NULL;
-		}
-	}
-
-	return hr;
-}
-
-void UnloadDll()
-{
-	DLLCANUNLOADNOW DllCanUnloadNow;
-	DllCanUnloadNow = (DLLCANUNLOADNOW)GetProcAddress(hinstDll, "DllCanUnloadNow");
-
-	if (DllCanUnloadNow != NULL)
-	{
-		if (DllCanUnloadNow() == S_OK)
-		{
-			FreeLibrary(hinstDll);
-		}
-	}
-}
 void UseStopwatch(IStopwatch* const pStopwatch)
 {
 	float nElapsedTime;
@@ -69,33 +18,37 @@ int main(int argc, char *argv[])
 {
 	HRESULT hr;
 	IStopwatch* pStopwatch = NULL;
-	IUnknown* pIUnknown = NULL;
-	IUnknown* pIUnknown2 = NULL;
 
-	hr = CreateInstance(CLSID_Stopwatch, IID_IUnknown, (void **)&pIUnknown);
+	CoInitialize(NULL);
+
+	hr = CoCreateInstance(CLSID_Stopwatch, NULL, CLSCTX_INPROC_SERVER, IID_IStopwatch, (void**)&pStopwatch);
 
 	if (!SUCCEEDED(hr))
 	{
 		std::cout << "ERROR: Unable to create Stopwatch!!";
+		switch(hr)
+		{
+		case REGDB_E_CLASSNOTREG:
+			std::cout<<"	Class not registered.\n";
+			break;
+		case E_NOINTERFACE:
+			std::cout<<"	No such interface implemented.\n";
+			break;
+		case CLASS_E_NOAGGREGATION:
+			std::cout<<"	No aggregation.\n";
+			break;
+		default:
+			std::cout<<"	Unexpected error.\n";
+			break;
+		}
 	} 
 	else
 	{
-		pIUnknown2 = pIUnknown;
-
-		hr = pIUnknown2->QueryInterface(IID_IStopwatch, (void **)&pStopwatch);
-		if (!SUCCEEDED(hr))
-		{
-			std::cout << "ERROR: Unable to retrieve Stopwatch interface!!";
-		} 
-		else
-		{
-			UseStopwatch(pStopwatch);
-			pStopwatch->Release();
-			pStopwatch = NULL;
-		}
-		pIUnknown->Release();
+		UseStopwatch(pStopwatch);
+		pStopwatch->Release();
+		pStopwatch = NULL;
 	}
 
-	UnloadDll();
+	CoUninitialize();
 	return 0;
 }
