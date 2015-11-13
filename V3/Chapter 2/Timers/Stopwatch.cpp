@@ -5,7 +5,7 @@
 #include "Stopwatch.h"
 #include <mmsystem.h>
 
-
+extern long g_nServerLockCount;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -27,6 +27,7 @@ unsigned long __stdcall CStopwatch::Release()
 	if (InterlockedDecrement(&m_nReferenceCount) == 0)
 	{
 		delete this;
+		InterlockedDecrement(&g_nServerLockCount);
 		return 0;
 	}
 	return m_nReferenceCount;
@@ -89,6 +90,10 @@ HRESULT __stdcall CStopwatch::QueryInterface(REFIID riid, void ** ppvObject)
 
 unsigned long __stdcall CStopwatch::AddRef()
 {
-	return InterlockedIncrement(&m_nReferenceCount);
+	if (InterlockedIncrement(&m_nReferenceCount) == 1)
+	{
+		InterlockedIncrement(&g_nServerLockCount);
+	}
+	return m_nReferenceCount;
 }
 

@@ -2,15 +2,21 @@
 
 #include "..\timers_i.c"
 #include "..\Stopwatch.h"
+#include "..\StopwatchClassFactory.h"
 #define TIMERSDLL	"..\\Timers.dll"
 
 typedef HRESULT(__stdcall *DLLGETCLASSOBJECT)(REFCLSID rc_sid, REFIID riid, LPVOID * ppv);
+
+typedef HRESULT(__stdcall *DLLCANUNLOADNOW)(void);
+
+HINSTANCE hinstDll;
 
 HRESULT CreateInstance(REFCLSID rclsid, REFIID riid, void ** ppv)
 {
 	HRESULT hr = E_FAIL;
 	HINSTANCE hinstDll;
 	DLLGETCLASSOBJECT DllGetClassObject;
+	IClassFactory* pClassFactory;
 
 	hinstDll = LoadLibrary(TIMERSDLL);
 	if (hinstDll == NULL)
@@ -22,13 +28,33 @@ HRESULT CreateInstance(REFCLSID rclsid, REFIID riid, void ** ppv)
 		DllGetClassObject = ((DLLGETCLASSOBJECT)GetProcAddress(hinstDll, "DllGetClassObject"));
 		if (DllGetClassObject != NULL)
 		{
-			hr = DllGetClassObject(rclsid, riid, ppv);
+			hr = DllGetClassObject(rclsid, IID_IClassFactory, (void**)&pClassFactory);
+
+			if (SUCCEEDED(hr))
+			{
+				hr = pClassFactory->CreateInstance(NULL, riid, ppv);
+				pClassFactory->Release();
+			}
+			pClassFactory = NULL;
 		}
 	}
 
 	return hr;
 }
 
+void UnloadDll()
+{
+	DLLCANUNLOADNOW DllCanUnloadNow;
+	DllCanUnloadNow = (DLLCANUNLOADNOW)GetProcAddress(hinstDll, "DllCanUnloadNow");
+
+	if (DllCanUnloadNow != NULL)
+	{
+		if (DllCanUnloadNow() == S_OK)
+		{
+			FreeLibrary(hinstDll);
+		}
+	}
+}
 void UseStopwatch(IStopwatch* const pStopwatch)
 {
 	float nElapsedTime;
@@ -41,7 +67,6 @@ void UseStopwatch(IStopwatch* const pStopwatch)
 
 int main(int argc, char *argv[])
 {
-	float nElapsedTime;
 	HRESULT hr;
 	IStopwatch* pStopwatch = NULL;
 	IUnknown* pIUnknown = NULL;
@@ -71,5 +96,6 @@ int main(int argc, char *argv[])
 		pIUnknown->Release();
 	}
 
+	UnloadDll();
 	return 0;
 }

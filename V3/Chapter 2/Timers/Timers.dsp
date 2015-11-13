@@ -95,6 +95,10 @@ SOURCE=.\Stopwatch.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\StopwatchClassFactory.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Timers.cpp
 # End Source File
 # Begin Source File
@@ -112,6 +116,10 @@ SOURCE=.\Timers_i.c
 # Begin Source File
 
 SOURCE=.\Stopwatch.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\StopwatchClassFactory.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
